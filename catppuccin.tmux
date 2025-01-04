@@ -7,7 +7,7 @@
 # Inspired by dracula/tmux, catppucin/tmux & challenger-deep-theme/tmux
 #
 #
-export TMUX_CATPPUCCIN_DIR="$( cd "$(dirname "${BASH_SOURCE[0]}" )" && pwd)"
+PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 get_tmux_option() {
     local option value default
