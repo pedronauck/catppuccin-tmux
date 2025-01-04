@@ -7,7 +7,11 @@
 # Inspired by dracula/tmux, catppucin/tmux & challenger-deep-theme/tmux
 #
 #
+# Add debug at the very start of the file
+echo "Debug: Script started" >> /tmp/tmux-debug.log
+
 PLUGIN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+echo "Debug: PLUGIN_DIR = $PLUGIN_DIR" >> /tmp/tmux-debug.log
 
 get_tmux_option() {
     local option value default
@@ -42,6 +46,8 @@ unset_option() {
 
 
 main() {
+    echo "Debug: Starting main function" >> /tmp/tmux-debug.log
+    echo "Debug: Starting catppuccin-tmux plugin" >> /tmp/tmux-debug.log
     local theme
     theme="$(get_tmux_option "@catppuccin_variant" "")"
 
@@ -480,4 +486,7 @@ main() {
     tmux "${tmux_commands[@]}"
 }
 
+# Add debug before main call
+echo "Debug: About to call main" >> /tmp/tmux-debug.log
 main "$@"
+echo "Debug: After main call" >> /tmp/tmux-debug.log
